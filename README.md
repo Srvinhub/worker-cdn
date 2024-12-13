@@ -1,6 +1,6 @@
 # Proxy Worker
 
-这是一个简单的 Cloudflare Worker 示例，用于将所有传入的请求转发到指定的目标服务器，并保持原始请求的路径、方法和头信息。该 Worker 会将请求转发到 `http://s11.serv00.com:10086`，并附加请求的路径。
+这是一个简单的 Cloudflare Worker 示例，用于将所有传入的请求转发到指定的目标服务器，并保持原始请求的路径、方法和头信息。该 Worker 会将请求转发到 `http://s10.serv00.com:10086`，并附加请求的路径。
 
 ## 功能描述
 
@@ -9,15 +9,4 @@
 ## 使用方法
 
 1. 在 [Cloudflare Workers](https://workers.cloudflare.com/) 控制台创建一个新的 Worker。
-2. 将以下代码粘贴到 Worker 编辑器中：
-
-   ```javascript
-   addEventListener('fetch', event => {
-     event.respondWith(
-       fetch('http://s11.serv00.com:30405' + new URL(event.request.url).pathname, {
-         method: event.request.method,
-         headers: event.request.headers,
-         body: event.request.method === 'POST' ? event.request.body : null,
-       })
-     )
-   })
+2. 将文件代码粘贴到 Worker 编辑器中
